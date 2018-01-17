@@ -31,6 +31,13 @@ public class PlayerList extends JavaPlugin implements CommandExecutor, Listener
 	{
 		if(command.getName().equalsIgnoreCase("PlayerList"))
 		{
+			if(!(sender instanceof Player))
+			{
+				sender.sendMessage("§cOnly player can use this command !");
+				return true;
+			}
+
+			
 			if(args.length < 1)
 			{
 				args = new String[1];
@@ -42,7 +49,8 @@ public class PlayerList extends JavaPlugin implements CommandExecutor, Listener
 				page = Integer.parseInt(args[0]);
 			}catch(NumberFormatException e)
 			{
-				e.printStackTrace();
+				sender.sendMessage("§cMerci d'entrer un nombre");
+				return true;
 			}
 
 			if(page < 0)
@@ -53,12 +61,7 @@ public class PlayerList extends JavaPlugin implements CommandExecutor, Listener
 
 			page++;
 
-			if(!(sender instanceof Player))
-			{
-				sender.sendMessage("§cOnly player can use this command !");
-				return true;
-			}
-
+		
 			Inventory inv = Bukkit.createInventory(null, 5 * 9, "§bListe des joueurs -§1 Page " + page);
 			for(int i = (page - 1) * 4 * 9; i < (page - 1) * 4 * 9 + (4 * 9); i++)
 			{
