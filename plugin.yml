@@ -6,8 +6,8 @@ main: fr.etrenak.playerlist.PlayerList
 commands:
   PlayerList:
    aliases: [ListJoueur, pList]
-   permission: games-networks.staff.list
+   permission: PlayerList.PlayerList
 
 permissions:
-  games-networks.staff.list:
+  PlayerList.PlayerList:
     default: op
