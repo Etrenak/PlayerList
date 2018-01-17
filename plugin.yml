@@ -1,0 +1,13 @@
+name: PlayerList
+version: 1.0.0
+author: Etrenak
+main: fr.etrenak.playerlist.PlayerList
+
+commands:
+  PlayerList:
+   aliases: [ListJoueur, pList]
+   permission: games-networks.staff.list
+
+permissions:
+  games-networks.staff.list:
+    default: op
